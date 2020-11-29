@@ -9,7 +9,7 @@ Pour lancer localement l'application les outils suivant sont nécessaires sur le
 
 ## Installation des dépendances
 
-Les dépendances s'installe comme suit (commande à lancer à la racine du projet):
+Les dépendances s'installent comme suit (commande à lancer à la racine du projet):
 
 ```
 npm install
