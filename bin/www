@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+
+var createApplication = require('../app');
+const createMongoDatabaseConnection = require("../core/mongodb")
+// var debug = require('debug')('docker-tp-todolist-api:server');
+var http = require('http');
+require("dotenv").config();
+
+const start = async () => {
+  var port = '3000';
+
+  const dbUri = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PWD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}`;
+  const db = await createMongoDatabaseConnection(dbUri, process.env.MONGODB_NAME);
+
+  const configuration = {
+    port: port
+  }
+  const app = createApplication(db, configuration);
+
+  var server = http.createServer(app);
+  server.listen(port);
+  process.on("beforeExit", code => {
+    console.log("Process beforeExit event with code: ", code);
+    server.close();
+  });
+}
+
+start()
+
+

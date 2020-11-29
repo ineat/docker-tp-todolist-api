@@ -1,0 +1,4 @@
+dockerfiles/Dockerfile-back
+dockerfiles/Dockerfile-mongo
+.idea
+node_modules
