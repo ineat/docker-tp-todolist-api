@@ -1,4 +1,7 @@
 dockerfiles/Dockerfile-back
 dockerfiles/Dockerfile-mongo
+dockerfiles/Dockerfile-multistage
 .idea
 node_modules
+docker-compose.yml
+*_secret.txt
